@@ -15,7 +15,7 @@
 import tkinter as tk
 
 root = tk.Tk()
-root.title("Zangpos Sweet Home")
+root.title("Zangpo's Sweet Home")
 root.geometry("700x600")
 
 canvas = tk.Canvas(root, width=650, height=550, bg="#07152e")
@@ -28,11 +28,7 @@ stars = [
 ]
 
 for x, y in stars:
-    canvas.create_oval(
-        x, y, x + 5, y + 5,
-        fill="white",
-        outline="white"
-    )
+    canvas.create_oval(x, y, x + 5, y + 5, fill="white", outline="white")
 
 canvas.create_oval(
     500, 45, 590, 135,
@@ -62,17 +58,8 @@ canvas.create_polygon(
     width=2
 )
 
-canvas.create_line(
-    170, 260, 480, 260,
-    fill="black",
-    width=4
-)
-
-canvas.create_line(
-    170, 360, 480, 360,
-    fill="black",
-    width=4
-)
+canvas.create_line(170, 260, 480, 260, fill="black", width=4)
+canvas.create_line(170, 360, 480, 360, fill="black", width=4)
 
 canvas.create_rectangle(
     200, 190, 260, 235,
@@ -88,12 +75,6 @@ canvas.create_rectangle(
     width=2
 )
 
-canvas.create_line(230, 190, 230, 235, fill="red", width=2)
-canvas.create_line(200, 212, 260, 212, fill="red", width=2)
-
-canvas.create_line(420, 190, 420, 235, fill="red", width=2)
-canvas.create_line(390, 212, 450, 212, fill="red", width=2)
-
 canvas.create_rectangle(
     200, 285, 260, 330,
     fill="black",
@@ -107,12 +88,6 @@ canvas.create_rectangle(
     outline="white",
     width=2
 )
-
-canvas.create_line(230, 285, 230, 330, fill="red", width=2)
-canvas.create_line(200, 307, 260, 307, fill="red", width=2)
-
-canvas.create_line(420, 285, 420, 330, fill="red", width=2)
-canvas.create_line(390, 307, 450, 307, fill="red", width=2)
 
 canvas.create_rectangle(
     290, 375, 360, 470,
@@ -139,6 +114,54 @@ canvas.create_rectangle(
     fill="black",
     outline="white",
     width=2
+)
+
+canvas.create_rectangle(
+    270, 270, 380, 335,
+    fill="#b91c1c",
+    outline="black",
+    width=3
+)
+
+canvas.create_rectangle(
+    265, 265, 385, 275,
+    fill="black"
+)
+
+canvas.create_line(275, 275, 275, 325, fill="black", width=3)
+canvas.create_line(295, 275, 295, 325, fill="black", width=3)
+canvas.create_line(315, 275, 315, 325, fill="black", width=3)
+canvas.create_line(335, 275, 335, 325, fill="black", width=3)
+canvas.create_line(355, 275, 355, 325, fill="black", width=3)
+canvas.create_line(375, 275, 375, 325, fill="black", width=3)
+
+canvas.create_rectangle(
+    265, 325, 385, 335,
+    fill="black"
+)
+
+canvas.create_rectangle(
+    270, 170, 380, 225,
+    fill="#b91c1c",
+    outline="black",
+    width=3
+)
+
+canvas.create_rectangle(
+    265, 165, 385, 175,
+    fill="black"
+)
+
+canvas.create_line(275, 175, 275, 215, fill="black", width=3)
+canvas.create_line(295, 175, 295, 215, fill="black", width=3)
+canvas.create_line(315, 175, 315, 215, fill="black", width=3)
+canvas.create_line(335, 175, 335, 215, fill="black", width=3)
+canvas.create_line(355, 175, 355, 215, fill="black", width=3)
+canvas.create_line(375, 175, 375, 215, fill="black", width=3)
+
+canvas.create_rectangle(
+    265, 215, 385, 225,
+    fill="black"
 )
 
 canvas.create_rectangle(
@@ -175,6 +198,112 @@ canvas.create_text(
     text="Zangpo's Sweet Home",
     fill="white",
     font=("Arial", 24, "bold")
+)
+
+canvas.create_polygon(
+    500, 450,
+    550, 410,
+    600, 450,
+    fill="#8B4513",
+    outline="black",
+    width=3
+)
+
+canvas.create_rectangle(
+    510, 450, 590, 500,
+    fill="#A0522D",
+    outline="black",
+    width=3
+)
+
+canvas.create_oval(
+    535, 460, 565, 500,
+    fill="black",
+    outline="black"
+)
+
+canvas.create_oval(
+    385, 390, 475, 480,
+    fill="#8B4513",
+    outline="black",
+    width=3
+)
+
+canvas.create_oval(
+    360, 350, 445, 425,
+    fill="#A0522D",
+    outline="black",
+    width=3
+)
+
+canvas.create_oval(
+    355, 345, 390, 395,
+    fill="#5C3317",
+    outline="black",
+    width=2
+)
+
+canvas.create_oval(
+    425, 345, 460, 395,
+    fill="#5C3317",
+    outline="black",
+    width=2
+)
+
+canvas.create_oval(
+    380, 370, 390, 380,
+    fill="black"
+)
+
+canvas.create_oval(
+    415, 370, 425, 380,
+    fill="black"
+)
+
+canvas.create_oval(
+    397, 390, 410, 402,
+    fill="black"
+)
+
+canvas.create_arc(
+    390, 388, 420, 415,
+    start=200,
+    extent=140,
+    style="arc",
+    outline="black",
+    width=2
+)
+
+canvas.create_rectangle(
+    395, 450, 415, 510,
+    fill="#8B4513",
+    outline="black",
+    width=3
+)
+
+canvas.create_rectangle(
+    445, 450, 465, 510,
+    fill="#8B4513",
+    outline="black",
+    width=3
+)
+
+canvas.create_arc(
+    455, 400, 505, 465,
+    start=270,
+    extent=180,
+    style="arc",
+    outline="#8B4513",
+    width=12
+)
+
+canvas.create_arc(
+    365, 380, 440, 430,
+    start=0,
+    extent=180,
+    style="arc",
+    outline="red",
+    width=6
 )
 
 canvas.create_oval(
