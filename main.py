@@ -11,8 +11,8 @@
 # canvas.create_text(275, 310, text="Hello Canvas", font=("Arial", 20))
 
 # root.mainloop()
-
 import tkinter as tk
+import random
 
 root = tk.Tk()
 root.title("Zangpo's Sweet Home")
@@ -28,7 +28,11 @@ stars = [
 ]
 
 for x, y in stars:
-    canvas.create_oval(x, y, x + 5, y + 5, fill="white", outline="white")
+    canvas.create_oval(
+        x, y, x + 5, y + 5,
+        fill="white",
+        outline="white"
+    )
 
 canvas.create_oval(
     500, 45, 590, 135,
@@ -58,8 +62,17 @@ canvas.create_polygon(
     width=2
 )
 
-canvas.create_line(170, 260, 480, 260, fill="black", width=4)
-canvas.create_line(170, 360, 480, 360, fill="black", width=4)
+canvas.create_line(
+    170, 260, 480, 260,
+    fill="black",
+    width=4
+)
+
+canvas.create_line(
+    170, 360, 480, 360,
+    fill="black",
+    width=4
+)
 
 canvas.create_rectangle(
     200, 190, 260, 235,
@@ -128,12 +141,41 @@ canvas.create_rectangle(
     fill="black"
 )
 
-canvas.create_line(275, 275, 275, 325, fill="black", width=3)
-canvas.create_line(295, 275, 295, 325, fill="black", width=3)
-canvas.create_line(315, 275, 315, 325, fill="black", width=3)
-canvas.create_line(335, 275, 335, 325, fill="black", width=3)
-canvas.create_line(355, 275, 355, 325, fill="black", width=3)
-canvas.create_line(375, 275, 375, 325, fill="black", width=3)
+canvas.create_line(
+    275, 275, 275, 325,
+    fill="black",
+    width=3
+)
+
+canvas.create_line(
+    295, 275, 295, 325,
+    fill="black",
+    width=3
+)
+
+canvas.create_line(
+    315, 275, 315, 325,
+    fill="black",
+    width=3
+)
+
+canvas.create_line(
+    335, 275, 335, 325,
+    fill="black",
+    width=3
+)
+
+canvas.create_line(
+    355, 275, 355, 325,
+    fill="black",
+    width=3
+)
+
+canvas.create_line(
+    375, 275, 375, 325,
+    fill="black",
+    width=3
+)
 
 canvas.create_rectangle(
     265, 325, 385, 335,
@@ -152,12 +194,41 @@ canvas.create_rectangle(
     fill="black"
 )
 
-canvas.create_line(275, 175, 275, 215, fill="black", width=3)
-canvas.create_line(295, 175, 295, 215, fill="black", width=3)
-canvas.create_line(315, 175, 315, 215, fill="black", width=3)
-canvas.create_line(335, 175, 335, 215, fill="black", width=3)
-canvas.create_line(355, 175, 355, 215, fill="black", width=3)
-canvas.create_line(375, 175, 375, 215, fill="black", width=3)
+canvas.create_line(
+    275, 175, 275, 215,
+    fill="black",
+    width=3
+)
+
+canvas.create_line(
+    295, 175, 295, 215,
+    fill="black",
+    width=3
+)
+
+canvas.create_line(
+    315, 175, 315, 215,
+    fill="black",
+    width=3
+)
+
+canvas.create_line(
+    335, 175, 335, 215,
+    fill="black",
+    width=3
+)
+
+canvas.create_line(
+    355, 175, 355, 215,
+    fill="black",
+    width=3
+)
+
+canvas.create_line(
+    375, 175, 375, 215,
+    fill="black",
+    width=3
+)
 
 canvas.create_rectangle(
     265, 215, 385, 225,
@@ -316,6 +387,75 @@ canvas.create_oval(
     520, 450, 530, 460,
     fill="red",
     outline="white"
+)
+
+rain = []
+
+for i in range(120):
+    x = random.randint(0, 650)
+    y = random.randint(0, 550)
+
+    drop = canvas.create_line(
+        x, y,
+        x - 3, y + 15,
+        fill="#6fa8dc",
+        width=2
+    )
+
+    rain.append(drop)
+
+def move_rain():
+    for drop in rain:
+        canvas.move(drop, -2, 10)
+
+        x1, y1, x2, y2 = canvas.coords(drop)
+
+        if y1 > 550:
+            new_x = random.randint(0, 650)
+            new_y = random.randint(-50, 0)
+
+            canvas.coords(
+                drop,
+                new_x, new_y,
+                new_x - 3, new_y + 15
+            )
+
+    root.after(50, move_rain)
+
+def lightning():
+    canvas.configure(bg="#dce6f2")
+
+    bolt = canvas.create_polygon(
+        320, 80,
+        300, 170,
+        325, 165,
+        305, 250,
+        355, 145,
+        330, 150,
+        350, 80,
+        fill="#fff200",
+        outline="white"
+    )
+
+    root.after(
+        100,
+        lambda: remove_lightning(bolt)
+    )
+
+def remove_lightning(bolt):
+    canvas.delete(bolt)
+    canvas.configure(bg="#07152e")
+
+    root.after(
+        random.randint(3000, 7000),
+        lightning
+    )
+
+move_rain()
+
+root.after(
+    random.randint(2000, 5000),
+    lightning
 )
 
 root.mainloop()
